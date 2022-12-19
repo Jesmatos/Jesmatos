@@ -17,15 +17,15 @@ char *diagnosisDay;
 char *comorbidity; 
 
 // variavel para leitura de dados 
-char leitura[50]; 
+char leitura[60]; 
 // variavel de tratamento do registro 
-char registro[297]; 
+char registro[299]; 
 // ponteiro para arquivo 
 FILE *fp; 
 // FUNÇÕES 
 int validate_password() { 
-char login[20]; 
-char senha[20]; 
+char login[30]; 
+char senha[30]; 
 int i, senha_ok; 
 char c; 
 
@@ -40,11 +40,11 @@ i = 0;
 while((c=getch())!=13){ //13 é o valor de ENTER na tabela ASCII 
 senha[i]=c; 
 i++; 
-printf("*"); //imprime o * Anterisco 
+printf("*"); //imprime o * Asterisco 
 } 
 
 senha[i]='\0'; 
-senha_ok = strcmp(senha, "luciano"); 
+senha_ok = strcmp(senha, "Paula"); 
 if(!senha_ok) return 1; 
 } while (senha_ok); 
 } 
@@ -56,6 +56,8 @@ printf("Menu Principal\n");
 printf("--------------\n"); 
 printf("1- Cadastrar Paciente\n"); 
 printf("2- Consultar Paciente\n"); 
+26
+
 printf("3- Pesquisar Paciente (Nome/CPF)\n"); 
 printf("0- Sair do Programa\n"); 
 if (passagem) 
@@ -84,8 +86,8 @@ espacos = tamanho - tam;
 for (i=1;i<=espacos;i++) strcat(registro, " "); 
 } 
 void tratar_registro() { 
-preencher_espacos(name, 50); 
-preencher_espacos(email, 50); 
+preencher_espacos(name, 60); 
+preencher_espacos(email, 60); 
 strcat(registro, cpf); 
 strcat(registro, birthDay); 
 preencher_espacos(phoneNumber, 15);
@@ -113,6 +115,8 @@ free(state);
 free(cep); 
 free(diagnosisDay); 
 free(comorbidity); 
+
+27
 printf ("\n\nTamanho do registro: %d caracteres\n\n", strlen(registro)); 
 system("pause"); 
 return 1; 
@@ -172,7 +176,7 @@ printf ("Comorbidade: %s\n", comorbidity);
 printf ("\n\n * Dados do paciente recuperados do arquivo *\n\n"); 
 system("pause"); 
 }
-
+28
 void imprimir() { 
 system("cls"); 
 printf ("*** Consulta de Paciente ***\n\n\n\n\n"); 
